@@ -1,6 +1,7 @@
 import pandas as pd
 from flask import Flask, send_from_directory
 from flask_cors import CORS
+import gunicorn
 
 # import the csv file
 words = pd.read_csv("wordList.csv", header=None)
