@@ -79,5 +79,11 @@ def word_finder(clues):
 # p,,r,,,ery,adiusnotlmh
     result = find_word(first=first_letters, second=second_letters, third=third_letters,
                        fourth=fourth_letters, fifth=fifth_letters, present=present_letters, absent=absent_letters)
-    print(result)
-    return f"<p>{escape(result)}!</p>"
+    np_arr = result.to_numpy()
+    result_arr = []
+    for word in np_arr:
+        result_arr.append("".join(word))
+
+    response = {"result": result_arr}
+    print(response)
+    return response, 200
