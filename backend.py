@@ -1,7 +1,6 @@
 import pandas as pd
-from flask import Flask
-from markupsafe import escape
-
+from flask import Flask, send_from_directory
+from flask_cors import CORS
 
 # import the csv file
 words = pd.read_csv("wordList.csv", header=None)
@@ -58,11 +57,17 @@ def find_word(first="", second="", third="", fourth="", fifth="", present=None, 
 
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route("/", methods=['GET'])
 def hello_world():
-    return "<p>Hello, World!</p>"
+    return send_from_directory('', 'index.html')
+
+
+@app.route("/script.js", methods=['GET'])
+def send_script():
+    return send_from_directory('', 'script.js')
 
 
 @app.route("/find/<string:clues>", methods=['GET'])
