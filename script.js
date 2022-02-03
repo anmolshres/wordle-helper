@@ -18,13 +18,27 @@ window.addEventListener('DOMContentLoaded', (_e) => {
   submitButton.addEventListener('click', async (e) => {
     e.preventDefault();
 
-    const firstLetter = document.getElementById('firstLetter').value;
-    const secondLetter = document.getElementById('secondLetter').value;
-    const thirdLetter = document.getElementById('thirdLetter').value;
-    const fourthLetter = document.getElementById('fourthLetter').value;
-    const fifthLetter = document.getElementById('fifthLetter').value;
-    const presentLetters = document.getElementById('presentLetters').value;
-    const absentLetters = document.getElementById('absentLetters').value;
+    const firstLetter = document
+      .getElementById('firstLetter')
+      .value.toLocaleLowerCase();
+    const secondLetter = document
+      .getElementById('secondLetter')
+      .value.toLocaleLowerCase();
+    const thirdLetter = document
+      .getElementById('thirdLetter')
+      .value.toLocaleLowerCase();
+    const fourthLetter = document
+      .getElementById('fourthLetter')
+      .value.toLocaleLowerCase();
+    const fifthLetter = document
+      .getElementById('fifthLetter')
+      .value.toLocaleLowerCase();
+    const presentLetters = document
+      .getElementById('presentLetters')
+      .value.toLocaleLowerCase();
+    const absentLetters = document
+      .getElementById('absentLetters')
+      .value.toLocaleLowerCase();
 
     const data = await makeRequest(
       firstLetter,
