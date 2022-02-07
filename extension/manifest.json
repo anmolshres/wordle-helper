@@ -2,5 +2,13 @@
   "name": "Wordle Helper",
   "description": "Extension to help with daily Wordles",
   "version": "1.0",
-  "manifest_version": 3
+  "manifest_version": 3,
+  "permissions": ["tabs"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": ["https://www.powerlanguage.co.uk/wordle/"],
+  "action": {
+    "default_popup": "popup.html"
+  }
 }
