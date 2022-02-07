@@ -1,0 +1,6 @@
+{
+  "name": "Wordle Helper",
+  "description": "Extension to help with daily Wordles",
+  "version": "1.0",
+  "manifest_version": 3
+}
