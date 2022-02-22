@@ -32,10 +32,10 @@ const initialize = () => {
         }
         break;
       case 'present':
-        if (!alreadyCounted) presentLetters += letter;
+        if (!alreadyCounted(letter)) presentLetters += letter;
         break;
       case 'absent':
-        if (!alreadyCounted) absentLetters += letter;
+        if (!alreadyCounted(letter)) absentLetters += letter;
         break;
     }
   };
@@ -64,6 +64,8 @@ const initialize = () => {
     const backendUrl = `https://wordle-helper-anmol.herokuapp.com/find/${firstLetter},${secondLetter},${thirdLetter},${fourthLetter},${fifthLetter},${presentLetters},${absentLetters}`;
     const response = await fetch(backendUrl);
     const responseJSON = await response.json();
+    console.log(presentLetters);
+    console.log(absentLetters);
 
     const content = document.getElementById('content');
     content.innerText = JSON.stringify(responseJSON.result);
@@ -76,7 +78,7 @@ const initialize = () => {
     chrome.scripting.executeScript(
       {
         target: { tabId: tab.id },
-        function: () => window.localStorage.gameState,
+        function: () => window.localStorage.getItem('nyt-wordle-state'),
       },
       async (val) => {
         await evaluate(JSON.parse(val[0].result));

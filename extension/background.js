@@ -1,6 +1,6 @@
 const enableOrDisableExt = (tab) => {
   const isWordle = tab.url.startsWith(
-    'https://www.powerlanguage.co.uk/wordle/'
+    'https://www.nytimes.com/games/wordle/index.html'
   );
   isWordle ? chrome.action.enable(tab.tabId) : chrome.action.disable(tab.tabId);
 };

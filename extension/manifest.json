@@ -7,7 +7,7 @@
   "background": {
     "service_worker": "background.js"
   },
-  "host_permissions": ["https://www.powerlanguage.co.uk/wordle/"],
+  "host_permissions": ["https://www.nytimes.com/games/wordle/index.html"],
   "action": {
     "default_popup": "popup.html"
   }
